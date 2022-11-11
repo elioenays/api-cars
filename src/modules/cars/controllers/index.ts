@@ -16,4 +16,12 @@ export class CarController {
 
     return response.json(car)
   }
+
+  public async create(request: Request, response: Response) {
+    const { model, licence_plate } = request.body
+
+    const car = await carService.create(model, licence_plate)
+
+    return response.json(car)
+  }
 }

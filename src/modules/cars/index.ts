@@ -6,5 +6,6 @@ const carController = new CarController()
 
 carsRoutes.get('/', carController.findAll)
 carsRoutes.get('/:id', carController.findOne)
+carsRoutes.post('/', carController.create)
 
 export default carsRoutes

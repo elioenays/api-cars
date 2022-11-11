@@ -15,13 +15,30 @@ export default class CarService {
   }
 
   public async findOne(id: string) {
-    const brand = new Promise((resolve, reject) => {
+    const car = new Promise((resolve, reject) => {
       db.query(`select * from car where id=${id}`, (error, result) => {
         if (error) return reject(error)
         return resolve(result)
       })
     })
 
-    return brand
+    return car
+  }
+
+  public async create(model: string, licence_plate: string) {
+    const car = new Promise((resolve, reject) => {
+      db.query(
+        `INSERT INTO cars.car
+(model, license_plate)
+VALUES(?, ?);`,
+        [model, licence_plate],
+        (error, result) => {
+          if (error) return reject(error)
+          return resolve(result)
+        },
+      )
+    })
+
+    return car
   }
 }
