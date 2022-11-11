@@ -8,4 +8,12 @@ export class CarController {
 
     return response.json(cars)
   }
+
+  public async findOne(request: Request, response: Response) {
+    const { id } = request.params
+
+    const car = await carService.findOne(id)
+
+    return response.json(car)
+  }
 }
