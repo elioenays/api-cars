@@ -5,7 +5,7 @@ export const database = () => {
     host: 'localhost',
     database: 'cars',
     user: 'root',
-    password: 'password',
+    password: 'mysql',
   })
 
   connection.connect(e => {
