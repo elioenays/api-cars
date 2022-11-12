@@ -17,4 +17,12 @@ export default class BrandController {
 
     return response.json(brand)
   }
+
+  public async create(request: Request, response: Response) {
+    const { name } = request.body
+
+    const brand = await brandService.create(name)
+
+    return response.json(brand)
+  }
 }

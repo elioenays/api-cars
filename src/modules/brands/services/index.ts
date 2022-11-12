@@ -24,4 +24,21 @@ export default class BrandService {
 
     return brand
   }
+
+  public async create(name: string) {
+    const brand = new Promise((resolve, reject) => {
+      db.query(
+        `INSERT INTO cars.brand
+(name)
+VALUES(?);`,
+        [name],
+        (error, result) => {
+          if (error) return reject(error)
+          return resolve(result)
+        },
+      )
+    })
+
+    return brand
+  }
 }
