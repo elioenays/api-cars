@@ -5,12 +5,11 @@ export const database = () => {
     host: 'localhost',
     database: 'cars',
     user: 'root',
-    password: 'unicatolica',
+    password: 'password',
   })
 
   connection.connect(e => {
     if (e) throw e.message
-    console.log('Database conected')
   })
 
   return connection
